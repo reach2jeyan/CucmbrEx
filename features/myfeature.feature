@@ -10,7 +10,7 @@ Feature: Google page feature
     When I enter text "Search" in the search box
     Then I tap on search button
 
-  Scenario Outline: Verify links with texts exists in footer
+  Scenario Outline: Verify links with texts exists in footer and language bar
     Given I enter "http://google.co.in" in broswer
     Then I wait for the Page to load
     Then I assert for the <text> in text
@@ -24,6 +24,15 @@ Feature: Google page feature
     |Privacy    |
     |Terms      |
     |Settings   |
+    |हिन्दी  |
+    |বাংলা   |
+    |తెలుగు  |
+    |मराठी   |
+    |தமிழ்   |
+    |ગુજરાતી |
+    |ಕನ್ನಡ   |
+    |മലയാളം  |
+    |ਪੰਜਾਬੀ  |
 
 
   Scenario Outline: User should be able to Search google with various keywords
@@ -41,6 +50,32 @@ Feature: Google page feature
       | Angry Birds    |
       |Minions         |
       |Amazon          |
+
+    Scenario Outline: User should be able to navigate to footer links and load the next page
+      Given I enter "http://google.co.in" in broswer
+      Then I click <footertext> in the footer bar
+      Then I wait for the Page to load
+      Then I get the URL of the page
+
+      Examples:
+      |footertext|
+      |Advertising|
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
