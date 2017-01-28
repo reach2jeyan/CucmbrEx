@@ -31,3 +31,17 @@ Then(/^I assert for the (.*) in text$/) do |text|
   browser.link(:verify, "text")
 
 end
+
+
+Then(/^I click on back button$/) do
+  browser.back
+end
+
+
+Then(/^I get the URL of the page$/) do
+  puts browser.url
+end
+
+Then(/^I click (.*) in the footer bar$/) do |footertext|
+  browser.div(class: '_Gs').link(text: 'footertext')
+end
