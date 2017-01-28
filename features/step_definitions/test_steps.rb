@@ -1,8 +1,8 @@
 require 'watir'
-require 'watir-webdriver'
+
 require 'colorize'
 
-browser= Watir::Browser.new :ff
+browser= Watir::Browser.new :chrome
 
 
 
@@ -15,5 +15,9 @@ Then(/^I enter text "([^"]*)" in the search box$/) do |input_text|
 end
 
 Then (/^I tap on search button$/) do
-  browser.button(:name, "btnK").click
+  browser.button(:value, "Search").click
+end
+
+Then(/^I wait for the Page to load$/) do
+  browser.verify(:text, "1")
 end
