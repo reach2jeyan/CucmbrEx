@@ -19,5 +19,15 @@ Then (/^I tap on search button$/) do
 end
 
 Then(/^I wait for the Page to load$/) do
-  browser.verify(:text, "1")
+  sleep(10)
+end
+
+
+Then(/^I assert for the (.*) in class$/) do |logo_subtext|
+  browser.div(:class, "logo_subtext")
+end
+
+Then(/^I assert for the (.*) in text$/) do |text|
+  browser.link(:verify, "text")
+
 end
