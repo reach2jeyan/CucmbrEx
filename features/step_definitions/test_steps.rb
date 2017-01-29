@@ -2,7 +2,9 @@ require 'watir'
 
 require 'colorize'
 
-browser= Watir::Browser.new :chrome
+#To Prevent Chrome from closing after one line is executed.
+caps = Selenium::WebDriver::Remote::Capabilities.chrome("chromeOptions" => {'detach' => true})
+browser = Watir::Browser.new :chrome, desired_capabilities: caps
 
 
 
@@ -38,10 +40,11 @@ Then(/^I click on back button$/) do
 end
 
 
-Then(/^I get the URL of the page$/) do
-  puts browser.url
+
+When(/^I click (.*) in the link$/) do |footertext|
+  browser.link(:text, 'footertext').click
 end
 
-Then(/^I click (.*) in the footer bar$/) do |footertext|
-  browser.div(class: '_Gs').link(text: 'footertext')
+Then(/^I verify the URL of the new page$/) do
+  puts browser.url
 end
