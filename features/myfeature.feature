@@ -51,15 +51,53 @@ Feature: Google page feature
       |Minions         |
       |Amazon          |
 
-    Scenario Outline: User should be able to navigate to footer links and load the next page
+  Scenario Outline: User should be able to navigate to footer links and load the next page
       Given I enter "http://google.co.in" in broswer
-      When I click <footertext> in the link
-      Then I verify the URL of the new page
+      When I click on <linktext> in the link
+      Then I print the URL of the new page
 
 
       Examples:
-      |footertext|
+      |linktext|
       |Advertising|
+      |Business   |
+      |About      |
+      |Privacy    |
+      |Terms      |
+      |Settings   |
+
+  Scenario Outline: User should be able to load google in respective language when language link clicked.
+        Given I enter "http://google.co.in" in broswer
+        When I click on <linktext> in the link
+        Then I wait for the Page to load
+        Then I assert for the <text> in text
+        Then I get <text> class name printed.
+        Then I click on back button
+
+
+
+
+        Examples:
+        |linktext|          |text|
+        |हिन्दी|              |भारत       |
+        |বাংলা |              |ভারত       |
+
+  Scenario Outline: User should be able to navigate to images and save an image
+          Given I enter "http://google.co.in" in broswer
+          Then I enter text "<Search>" in the search box
+          Then I tap on search button
+          Then I assert for the <linktext> in navbar
+          Then I click on <linktext> in the navbar
+          Then I fetch the visible links in that page
+          
+
+
+    Examples:
+    |Search|       |linktext|
+    |Iron Man|     |Images  |
+
+
+
 
 
 
