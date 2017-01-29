@@ -53,13 +53,16 @@ Feature: Google page feature
 
     Scenario Outline: User should be able to navigate to footer links and load the next page
       Given I enter "http://google.co.in" in broswer
-      Then I click <footertext> in the footer bar
-      Then I wait for the Page to load
-      Then I get the URL of the page
+      When I click <footertext> in the link
+      Then I verify the URL of the new page
+
 
       Examples:
       |footertext|
       |Advertising|
+
+
+
 
 
 
