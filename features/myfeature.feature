@@ -1,25 +1,127 @@
-Feature: Test feature
+Feature: Google page feature
 
-  Scenario: Open google page
+  Scenario: Verify if Google page loaded on launch
+    Given I enter "http://google.co.in" in broswer
+    Then I wait for the Page to load
+    Then I assert for the <logo-subtext> in class
+
+  Scenario: Open google page and tap search button
     Given I enter "http://google.co.in" in broswer
     When I enter text "Search" in the search box
     Then I tap on search button
 
-    Scenario Outline: User should be able to Search google with various keywords
+  Scenario Outline: Verify links with texts exists in footer and language bar
+    Given I enter "http://google.co.in" in broswer
+    Then I wait for the Page to load
+    Then I assert for the <text> in text
+
+
+    Examples:
+    |text|
+    |Advertising|
+    |Business   |
+    |About      |
+    |Privacy    |
+    |Terms      |
+    |Settings   |
+    |हिन्दी  |
+    |বাংলা   |
+    |తెలుగు  |
+    |मराठी   |
+    |தமிழ்   |
+    |ગુજરાતી |
+    |ಕನ್ನಡ   |
+    |മലയാളം  |
+    |ਪੰਜਾਬੀ  |
+
+
+  Scenario Outline: User should be able to Search google with various keywords
+    Given I enter "http://google.co.in" in broswer
+    When I enter text <Searchterm> in the search box
+    Then I tap on the search button
+    Then I wait for the Page to load
+
+    Examples:
+
+      | Searchterm |
+      | Panda      |
+      |Natilee Holloway|
+      |Avengers        |
+      | Angry Birds    |
+      |Minions         |
+      |Amazon          |
+
+  Scenario Outline: User should be able to navigate to footer links and load the next page
       Given I enter "http://google.co.in" in broswer
-      When I enter text <Searchterm> in the search box
-      Then I tap on the search button
-      Then I wait for the Page to load
+      When I click on <linktext> in the link
+      Then I print the URL of the new page
+
 
       Examples:
+      |linktext|
+      |Advertising|
+      |Business   |
+      |About      |
+      |Privacy    |
+      |Terms      |
+      |Settings   |
 
-        | Searchterm |
-        | Panda      |
-        |Natilee Holloway|
-        |Avengers        |
-        | Angry Birds    |
-        |Minions         |
-        |Amazon          |
+  Scenario Outline: User should be able to load google in respective language when language link clicked.
+        Given I enter "http://google.co.in" in broswer
+        When I click on <linktext> in the link
+        Then I wait for the Page to load
+        Then I assert for the <text> in text
+        Then I get <text> class name printed.
+        Then I click on back button
+
+
+
+
+        Examples:
+        |linktext|          |text|
+        |हिन्दी|              |भारत       |
+        |বাংলা |              |ভারত       |
+
+  Scenario Outline: User should be able to navigate to images and save an image
+          Given I enter "http://google.co.in" in broswer
+          Then I enter text "<Search>" in the search box
+          Then I tap on search button
+          Then I assert for the <linktext> in navbar
+          Then I click on <linktext> in the navbar
+          Then I fetch the visible links in that page
+          
+
+
+    Examples:
+    |Search|       |linktext|
+    |Iron Man|     |Images  |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -2,7 +2,9 @@ require 'watir'
 
 require 'colorize'
 
-browser= Watir::Browser.new :chrome
+#To Prevent Chrome from closing after one line is executed.
+caps = Selenium::WebDriver::Remote::Capabilities.chrome("chromeOptions" => {'detach' => true})
+browser = Watir::Browser.new :chrome, desired_capabilities: caps
 
 
 
@@ -19,5 +21,71 @@ Then (/^I tap on search button$/) do
 end
 
 Then(/^I wait for the Page to load$/) do
-  browser.verify(:text, "1")
+  sleep(10)
+end
+
+
+Then(/^I assert for the (.*) in class$/) do |logo_subtext|
+  browser.div(:class, "logo_subtext")
+end
+
+Then(/^I assert for the (.*) in text$/) do |text|
+  browser.link(:verify, text)
+
+end
+
+
+Then(/^I click on back button$/) do
+  browser.back
+end
+
+
+Then(/^I print the URL of the new page$/) do
+  puts browser.url
+end
+
+When(/^I click on "([^"]*)" in the link$/) do |arg|
+  browser.link(:text, "Advertising").click
+end
+
+When(/^I click on (.*) in the link$/) do |linktext|
+  browser.link(:text, linktext).click
+end
+
+
+
+Then(/^I get (.*) class name printed\.$/) do |text|
+  var = browser.link(:text, text).class
+  puts var
+end
+
+Then(/^I tap on the Voice button$/) do
+  browser.button(:label, "Search by voice").click
+end
+
+Then(/^I assert for the (.*) in navbar$/) do |linktext|
+  if browser.div(:id, 'top_nav').link(:text, linktext) == true
+    puts "Text exists, proceeding to click it"
+
+  else
+    puts "Your bad, text doesnt exist"
+  end
+
+end
+
+
+
+Then(/^I click on (.*) in the navbar$/) do |linktext|
+ lin = browser.div(:id, 'top_nav').link(:text, linktext)
+  lin.click
+
+end
+
+
+Then(/^I fetch the visible links in that page$/) do
+  puts browser.links
+end
+
+Then(/^I click on first Image on that page$/) do
+
 end
