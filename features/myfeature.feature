@@ -101,8 +101,7 @@ Feature: Google page feature
       Given I enter "http://google.co.in" in broswer
       Then I enter text "<Search>" in the search box
       When I tap on search button
-      Then I print the text with class
-      Then I click on back button
+      Then I enter "kc:/location/citytown:current weather" in data_attribute and print content
       Then I wait for the Page to load
 
       Examples:
