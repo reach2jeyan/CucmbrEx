@@ -89,3 +89,22 @@ end
 Then(/^I click on first Image on that page$/) do
 
 end
+
+Then(/^I assert for "([^"]*)" in the page$/) do |arg|
+  browser.link(:text, 'imdb') == true
+end
+
+Then(/^I print the text with class$/) do
+  weather = browser.div(:data_attrid => "kc:/location/citytown:current weather").text
+  puts weather
+
+end
+
+Then(/^I verify "([^"]*)" in page$/) do |text|
+  browser.text.include? "Plan a trip"
+end
+
+
+Then(/^I maximize the browser$/) do
+  browser.driver.manage.window.maximize
+end
