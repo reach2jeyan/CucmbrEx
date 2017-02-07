@@ -37,8 +37,8 @@ Feature: Google page feature
 
   Scenario Outline: User should be able to Search google with various keywords
     Given I enter "http://google.co.in" in broswer
-    When I enter text <Searchterm> in the search box
-    Then I tap on the search button
+    When I enter text "<Searchterm>" in the search box
+    Then I tap on search button
     Then I wait for the Page to load
 
     Examples:

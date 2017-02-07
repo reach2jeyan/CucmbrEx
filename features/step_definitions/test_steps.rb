@@ -1,12 +1,11 @@
 require 'watir'
 
 require 'colorize'
+require 'watir/browser'
 
 #To Prevent Chrome from closing after one line is executed.
 caps = Selenium::WebDriver::Remote::Capabilities.chrome("chromeOptions" => {'detach' => true})
 browser = Watir::Browser.new :chrome, desired_capabilities: caps
-
-
 
 Given(/^I enter "([^"]*)" in broswer$/) do |browser_url|
   browser.goto(browser_url)
@@ -88,4 +87,48 @@ end
 
 Then(/^I click on first Image on that page$/) do
 
+end
+
+
+Then(/^I tap on the "([^"]*)" text$/) do |text|
+  browser.div(text: text).click
+end
+
+Then(/^I assert for browser title ([^"]*)$/) do |arg1|
+  browser.title.eql?(arg1)
+end
+
+Then(/^I enter text ([^"]*) in Where from? field$/) do |arg1|
+  browser.div(class: "OMOBOQD-yb-c OMOBOQD-c-r OMOBOQD-D-g").click
+  browser.send_keys(arg1)
+end
+
+Then(/^I enter text ([^"]*) in Where to? field$/) do |arg1|
+  browser.div(class: "OMOBOQD-yb-c OMOBOQD-c-r OMOBOQD-D-b").click
+      browser.send_keys(arg1)
+end
+
+Then (/^I click on from date$/) do
+  browser.div(class: "OMOBOQD-G-d OMOBOQD-G-o").click
+  browser.send_keys(:backspace)
+end
+
+Then (/^I enter date "([^"]*)" in from date field$/) do |from_date|
+  browser.div(class: "OMOBOQD-G-d OMOBOQD-G-o").click
+      browser.send_keys(from_date)
+end
+
+Then (/^I click on to date$/) do
+  browser.div(class: "OMOBOQD-G-s OMOBOQD-G-r OMOBOQD-c-r OMOBOQD-D-h").click
+end
+
+Then (/^I enter date "([^"]*)" in to date field$/) do |from_date|
+  browser.div(class: "OMOBOQD-G-s OMOBOQD-G-r OMOBOQD-c-r OMOBOQD-D-h").click
+      browser.send_keys(from_date)
+    browser.send_keys(:enter)
+end
+
+
+Then (/^I print the prices$/) do
+ puts browser.div(class: "OMOBOQD-d-Ab").text
 end
