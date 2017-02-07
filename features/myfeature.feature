@@ -83,18 +83,37 @@ Feature: Google page feature
         |বাংলা |              |ভারত       |
 
   Scenario Outline: User should be able to navigate to images and save an image
-          Given I enter "http://google.co.in" in broswer
-          Then I enter text "<Search>" in the search box
-          Then I tap on search button
-          Then I assert for the <linktext> in navbar
-          Then I click on <linktext> in the navbar
-          Then I fetch the visible links in that page
+
+    Given I enter "http://google.co.in" in broswer
+    Then I enter text "<Search>" in the search box
+    Then I tap on search button
+    Then I assert for the <linktext> in navbar
+    Then I click on <linktext> in the navbar
+    Then I fetch the visible links in that page
           
 
 
     Examples:
     |Search|       |linktext|
     |Iron Man|     |Images  |
+
+    Scenario Outline: User should be able to know the weather and time on searching city from google home page
+      Given I enter "http://google.co.in" in broswer
+      Then I enter text "<Search>" in the search box
+      When I tap on search button
+      Then I print the text with class
+      Then I click on back button
+      Then I wait for the Page to load
+
+      Examples:
+
+      |Search|
+      |Bangalore|
+      |Mangalore|
+      |Hyderabad|
+      |Trivandrum|
+      |Kochi     |
+      |Munnar    |
 
 
 
