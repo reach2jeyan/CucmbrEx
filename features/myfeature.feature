@@ -120,7 +120,6 @@ Feature: Google page feature
 
         Examples:
         |Search|
-        |Australia|
         |Bangalore|
         |Seattle  |
         |NewYork  |
