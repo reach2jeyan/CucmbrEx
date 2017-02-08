@@ -108,4 +108,5 @@ end
 Then(/^I enter "([^"]*)" in data_attribute and print content$/) do |data_attribute|
   data = browser.div(:data_attrid => data_attribute).text
   puts data
+
 end
