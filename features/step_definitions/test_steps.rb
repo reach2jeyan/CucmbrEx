@@ -26,6 +26,7 @@ end
 
 Then(/^I assert for the (.*) in class$/) do |logo_subtext|
   browser.div(:class, "logo_subtext")
+
 end
 
 Then(/^I assert for the (.*) in text$/) do |text|
@@ -129,7 +130,11 @@ end
 
 
 Then (/^I print the prices$/) do
- puts browser.div(class: "OMOBOQD-d-Ab").text
+  browser.divs(:class => 'OMOBOQD-d-Ab').each do |div|
+    puts div.text
+
+  end
+
 end 
 
 Then(/^I assert for "([^"]*)" in the page$/) do |arg|
