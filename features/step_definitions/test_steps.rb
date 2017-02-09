@@ -156,3 +156,14 @@ Then(/^I enter "([^"]*)" in data_attribute and print content$/) do |data_attribu
   data = browser.div(:data_attrid => data_attribute).text
   puts data
 end
+
+Then(/^I print the text present in the pop up$/) do
+  browser.divs(:id => 'redir-footer').each do |div|
+    puts div.text
+  end
+end
+
+
+Then(/^I click "([^"]*)" on the popup$/) do |text|
+  browser.div(:id => 'redir-footer' ).link(:text => text).click
+end
