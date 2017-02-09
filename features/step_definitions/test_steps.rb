@@ -89,24 +89,3 @@ end
 Then(/^I click on first Image on that page$/) do
 
 end
-
-Then(/^I assert for "([^"]*)" in the page$/) do |arg|
-  browser.link(:text, 'imdb') == true
-end
-
-
-Then(/^I verify "([^"]*)" in page$/) do |text|
-  browser.text.include? "Plan a trip"
-end
-
-
-Then(/^I maximize the browser$/) do
-  browser.driver.manage.window.maximize
-end
-
-
-Then(/^I enter "([^"]*)" in data_attribute and print content$/) do |data_attribute|
-  data = browser.div(:data_attrid => data_attribute).text
-  puts data
-
-end

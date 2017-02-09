@@ -37,8 +37,8 @@ Feature: Google page feature
 
   Scenario Outline: User should be able to Search google with various keywords
     Given I enter "http://google.co.in" in broswer
-    When I enter text "<Searchterm>" in the search box
-    Then I tap on search button
+    When I enter text <Searchterm> in the search box
+    Then I tap on the search button
     Then I wait for the Page to load
 
     Examples:
@@ -74,59 +74,27 @@ Feature: Google page feature
         Then I get <text> class name printed.
         Then I click on back button
 
+
+
+
         Examples:
         |linktext|          |text|
         |हिन्दी|              |भारत       |
         |বাংলা |              |ভারত       |
 
   Scenario Outline: User should be able to navigate to images and save an image
-
-    Given I enter "http://google.co.in" in broswer
-    Then I enter text "<Search>" in the search box
-    Then I tap on search button
-    Then I assert for the <linktext> in navbar
-    Then I click on <linktext> in the navbar
-    Then I fetch the visible links in that page
+          Given I enter "http://google.co.in" in broswer
+          Then I enter text "<Search>" in the search box
+          Then I tap on search button
+          Then I assert for the <linktext> in navbar
+          Then I click on <linktext> in the navbar
+          Then I fetch the visible links in that page
           
 
 
     Examples:
     |Search|       |linktext|
     |Iron Man|     |Images  |
-
-    Scenario Outline: User should be able to know the weather and time on searching city from google home page
-      Given I enter "http://google.co.in" in broswer
-      Then I enter text "<Search>" in the search box
-      When I tap on search button
-      Then I enter "kc:/location/citytown:current weather" in data_attribute and print content
-      Then I wait for the Page to load
-
-      Examples:
-
-      |Search|
-      |Bangalore|
-      |Mangalore|
-      |Hyderabad|
-      |Trivandrum|
-      |Kochi     |
-      |Munnar    |
-
-      Scenario Outline: User should be able to know the time in several countries by typing the country name in Google search
-        Given I enter "http://google.co.in" in broswer
-        Then I enter text "<Search>" in the search box
-        When I tap on search button
-        Then I enter "kc:/location/citytown:local time" in data_attribute and print content
-        Then I wait for the Page to load
-
-        Examples:
-        |Search|
-        |Bangalore|
-        |Seattle  |
-        |NewYork  |
-        |Lexington |
-        |Tokyo  |
-        |Sydney|
-        |Paris    |
 
 
 
