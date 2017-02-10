@@ -29,8 +29,10 @@ Then(/^I assert for the (.*) in class$/) do |logo_subtext|
 
 end
 
-Then(/^I assert for the (.*) in text$/) do |text|
-  browser.link(:verify, text)
+Then(/^I assert for the text (.*) in page$/) do |text|
+   browser.link(:verify, text)
+
+
 
 end
 
@@ -166,4 +168,19 @@ end
 
 Then(/^I click "([^"]*)" on the popup$/) do |text|
   browser.div(:id => 'redir-footer' ).link(:text => text).click
+end
+
+Then(/^I click on "([^"]*)" with text "([^"]*)" using div id$/) do |nav, text|
+  lin = browser.div(:id, nav).link(:text, text)
+  lin.click
+end
+
+
+Then(/^I click on button with text "([^"]*)"$/) do |text|
+  browser.span(:text => text).click
+end
+
+Then(/^I enter Customer Name "([^"]*)" using div label "([^"]*)"$/) do |name, div|
+  browser.div(:label => div).click
+  browser.send_keys(name)
 end
