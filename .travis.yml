@@ -5,7 +5,6 @@ before_script:
   - gem install cucumber
   - gem install watir
 script:
-  - ./compile.sh
   - ./acceptancetest.sh
 
 email notifications: false
