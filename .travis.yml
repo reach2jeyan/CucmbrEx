@@ -1,12 +1,6 @@
 language : ruby
 sudo: required
 language: ruby
-rvm:
-  - 2.3.3
-  - 2.2
-  - 2.1
-  - 2.0
-  - jruby
 
 before install:
   - gem install bundle
