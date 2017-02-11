@@ -4,8 +4,7 @@ services: docker
 before_script:
   - gem install cucumber
   - gem install watir
-script:
-  - ./acceptancetest.sh
+
 
 email notifications: false
 
