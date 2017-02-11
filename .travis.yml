@@ -1,15 +1,12 @@
-language : ruby
-sudo: required
 language: ruby
-
-before install:
-  - gem install bundle
+sudo: required
+services: docker
+before_script:
   - gem install cucumber
-  - gem install ruby
   - gem install watir
-  - gem install rake
-
-env: TARGET_LANG=ruby
+script:
+  - ./compile.sh
+  - ./acceptancetest.sh
 
 email notifications: false
 
