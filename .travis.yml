@@ -15,5 +15,3 @@ before install:
 
 env: TARGET_LANG=ruby
 
-script:
-  -- cucumber
