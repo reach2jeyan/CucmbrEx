@@ -1,10 +1,1 @@
-language: ruby
-sudo: required
-services: docker
-before_script:
-  - gem install cucumber
-  - gem install watir
-
-
-email notifications: false
 
