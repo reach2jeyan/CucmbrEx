@@ -180,7 +180,22 @@ Then(/^I click on button with text "([^"]*)"$/) do |text|
   browser.span(:text => text).click
 end
 
-Then(/^I enter Customer Name "([^"]*)" using div label "([^"]*)"$/) do |name, div|
-  browser.div(:label => div).click
+Then(/^I enter "([^"]*)" using div id "([^"]*)"$/) do |name, div|
+  browser.input(:id => div).click
   browser.send_keys(name)
 end
+
+
+
+Then(/^I assert for the text field with div id "([^"]*)"$/) do |div|
+  browser.input(:id => div)
+end
+
+Then(/^I click on link with text "([^"]*)"$/) do |text|
+  browser.link(:text => text).click
+end
+
+
+When(/^I assert on link with div id "([^"]*)"$/) do |div|
+  browser.div(:id => div).click
+  end
