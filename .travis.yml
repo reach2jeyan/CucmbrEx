@@ -6,6 +6,7 @@ before install:
   - gem install bundle
   - gem install cucumber
   - gem install ruby
+  - gem install watir
 
 env: TARGET_LANG=ruby
 
