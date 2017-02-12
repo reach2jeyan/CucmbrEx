@@ -1,7 +1,9 @@
 Feature: To automate the flight application
 
+  Background:
+    Given I enter "www.google.co.in" in broswer
+
   Scenario: automate flight application
-    Given I enter "http://google.co.in" in broswer
     When I enter text "flights" in the search box
     Then I tap on search button
     Then I tap on the "Flights" text
