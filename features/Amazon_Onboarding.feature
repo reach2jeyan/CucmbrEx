@@ -1,8 +1,9 @@
 Feature: User Account creation with Amazon
 
+  Background:
+    Given I enter "www.amazon.in" in broswer
 
   Scenario: User should be able to create an account with phone number in Amazon(HappyPath)
-    Given I enter "www.amazon.in" in broswer
     Then I click on "nav-xshop-container" with text "Your Amazon.in" using div id
     Then I wait for the Page to load
     Then I assert for browser title <Amazon Sign in>
@@ -16,7 +17,6 @@ Feature: User Account creation with Amazon
 
 
   Scenario Outline: User should be able to create an account with email address in Amazon.in(HappyPath)
-    Given I enter "www.amazon.in" in broswer
     Then I click on "nav-xshop-container" with text "Your Amazon.in" using div id
     Then I wait for the Page to load
     Then I assert for browser title <Amazon Sign in>
@@ -37,7 +37,6 @@ Feature: User Account creation with Amazon
       |karenpage@yahoo.com       |
 
   Scenario: User should not be able to onboard with require fields missing(email and phone scenario)
-    Given I enter "www.amazon.in" in broswer
     Then I click on "nav-xshop-container" with text "Your Amazon.in" using div id
     Then I wait for the Page to load
     Then I assert for browser title <Amazon Sign in>
