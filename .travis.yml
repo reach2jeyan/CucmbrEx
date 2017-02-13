@@ -5,7 +5,9 @@ cache: bundler
 
 rvm: 2.2.0
 
-before_script: bundle install
+before_script:
+        - bundle install
+        - gem install watir
 script: bundle exec cucumber
 
 branches:
