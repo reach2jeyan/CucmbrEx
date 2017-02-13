@@ -1,6 +1,5 @@
 require 'watir'
 
-require 'colorize'
 require 'watir/browser'
 
 #To Prevent Chrome from closing after one line is executed.
