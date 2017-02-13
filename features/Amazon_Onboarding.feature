@@ -4,30 +4,30 @@ Feature: User Account creation with Amazon
     Given I enter "www.amazon.in" in broswer
 
   Scenario: User should be able to create an account with phone number in Amazon(HappyPath)
-    Then I click on "nav-xshop-container" with text "Your Amazon.in" using div id
+    And I click on "nav-xshop-container" with text "Your Amazon.in" using div id
     Then I wait for the Page to load
     Then I assert for browser title <Amazon Sign in>
-    Then I click on button with text "Create your Amazon account"
+    When I click on button with text "Create your Amazon account"
     Then I assert for the text "Your name" in page
-    Then I enter "Karen Page" using div id "ap_customer_name"
-    Then I enter "7012581399" using div id "ap_phone_number"
-    When I enter "jeyy1988" using div id "ap_password"
-    Then I click on button with text "Continue"
+    When I enter "Karen Page" using div id "ap_customer_name"
+    And I enter "7012581399" using div id "ap_phone_number"
+    And I enter "jeyy1988" using div id "ap_password"
+    When I click on button with text "Continue"
     Then I assert for browser title <Amazon Phone verification>
 
 
   Scenario Outline: User should be able to create an account with email address in Amazon.in(HappyPath)
-    Then I click on "nav-xshop-container" with text "Your Amazon.in" using div id
+    And I click on "nav-xshop-container" with text "Your Amazon.in" using div id
     Then I wait for the Page to load
     Then I assert for browser title <Amazon Sign in>
-    Then I click on button with text "Create your Amazon account"
+    When I click on button with text "Create your Amazon account"
     Then I assert for the text "Your name" in page
-    Then I enter "Veronica" using div id "ap_customer_name"
+    When I enter "Veronica" using div id "ap_customer_name"
     When I click on link with text "Use your email instead"
     Then I assert for the text field with div id "ap_email"
-    Then I enter "Email" using div id "ap_email"
-    When I enter "jeyy1988" using div id "ap_password"
-    Then I click on button with text "Create your Amazon account"
+    When I enter "Email" using div id "ap_email"
+    And I enter "jeyy1988" using div id "ap_password"
+    When I click on button with text "Create your Amazon account"
     Then I assert for browser title <Your amazon.in>
 
     Examples:
@@ -37,32 +37,32 @@ Feature: User Account creation with Amazon
       |karenpage@yahoo.com       |
 
   Scenario: User should not be able to onboard with require fields missing(email and phone scenario)
-    Then I click on "nav-xshop-container" with text "Your Amazon.in" using div id
+    And I click on "nav-xshop-container" with text "Your Amazon.in" using div id
     Then I wait for the Page to load
     Then I assert for browser title <Amazon Sign in>
-    Then I click on button with text "Create your Amazon account"
+    When I click on button with text "Create your Amazon account"
     Then I assert for the text "Your name" in page
     Then I enter "Elektra" using div id "ap_customer_name"
     When I click on link with text "Use your email instead"
     Then I assert for the text field with div id "ap_email"
     Then I enter "" using div id "ap_email"
     When I enter "jeyy1988" using div id "ap_password"
-    Then I click on button with text "Create your Amazon account"
+    And I click on button with text "Create your Amazon account"
     Then I assert for the text <Enter your e-mail> in page
     Then I click on back button
-    Then I click on button with text "Create your Amazon account"
+    And I click on button with text "Create your Amazon account"
     Then I assert for the text "Your name" in page
-    Then I enter "Elektra" using div id "ap_customer_name"
-    Then I enter "" using div id "ap_phone_number"
-    Then I enter "jeyy1988" using div id "ap_password"
+    When I enter "Elektra" using div id "ap_customer_name"
+    And I enter "" using div id "ap_phone_number"
+    And I enter "jeyy1988" using div id "ap_password"
     When I click on button with text "Continue"
     Then I assert for the text <Enter your mobile number> in page
     Then I click on back button
-    Then I click on button with text "Create your Amazon account"
+    When I click on button with text "Create your Amazon account"
     Then I enter "" using div id "ap_customer_name"
-    Then I enter "7012581399" using div id "ap_phone_number"
-    Then I enter "jeyy1988" using div id "ap_password"
-    Then I click on button with text "Continue"
+    And I enter "7012581399" using div id "ap_phone_number"
+    And I enter "jeyy1988" using div id "ap_password"
+    When I click on button with text "Continue"
     Then I assert for the text <Enter your name> in page
 
 
