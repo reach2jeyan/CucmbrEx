@@ -2,6 +2,14 @@ sudo: required
 language: ruby
 cache: bundler
 
+directories:
+    - $HOME/buildout-cache
+
+addons:
+  apt:
+    packages:
+    - chromium-browser
+          - chromium-chromedriver
 
 rvm: 2.2
 
