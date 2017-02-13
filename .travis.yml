@@ -11,7 +11,16 @@ before_script:
         - gem install colorize
         - gem install rspec
         - gem install cucumber
-        - gem install chromedriver
+        - wget http://chromedriver.storage.googleapis.com/2.21/chromedriver_linux64.zip
+          - unzip chromedriver_linux64.zip
+          - sudo chmod u+x chromedriver
+          - sudo mv chromedriver /usr/bin/
+          - export CHROME_BIN=chromium-browser
+          - "export DISPLAY=:99.0"
+          - "sh -e /etc/init.d/xvfb start"
+          - sleep 3
+          - ./travis_before_install
+
 script: bundle exec cucumber
 
 branches:
