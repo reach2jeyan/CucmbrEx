@@ -3,12 +3,14 @@ source 'https://rubygems.org'
 language: ruby
 cache: bundler
 
-rvm: 2.2.0
+rvm: 1.9.3
 
 before_script:
         - bundle install
         - gem install watir
         - gem install colorize
+        - gem install rspec
+        - gem install cucumber
 script: bundle exec cucumber
 
 branches:
@@ -18,3 +20,4 @@ branches:
 notifications:
   email:
     - iamsmj@gmail.com
+
