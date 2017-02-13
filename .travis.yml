@@ -11,6 +11,7 @@ before_script:
         - gem install colorize
         - gem install rspec
         - gem install cucumber
+        - gem install chromedriver
 script: bundle exec cucumber
 
 branches:
