@@ -14,6 +14,8 @@ apt:
 
 rvm: 2.2
 
+script: bundle exec cucumber
+
 before_install:
          - export CHROME_BIN=/usr/bin/google-chrome
          - export DISPLAY=:99.0
