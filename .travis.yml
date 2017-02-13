@@ -29,6 +29,7 @@ before_script:
         - gem install colorize
         - gem install rspec
         - gem install cucumber
+        - gem install rake
 
 branches:
   only:
