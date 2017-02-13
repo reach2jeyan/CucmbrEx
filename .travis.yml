@@ -30,9 +30,6 @@ before_script:
         - gem install rspec
         - gem install cucumber
 
-
-script: bundle exec cucumber
-
 branches:
   only:
     - master
