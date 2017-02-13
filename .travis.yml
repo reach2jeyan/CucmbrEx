@@ -2,12 +2,6 @@ sudo: required
 language: ruby
 cache: bundler
 
-addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
 
 rvm: 2.2
 
