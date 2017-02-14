@@ -2,8 +2,14 @@ source 'https://rubygems.org'
 
 language: ruby
 cache: bundler
+sudo: required
 
-rvm: 1.9.3
+addons:
+      apt:
+        sources:
+          - google-chrome
+        packages:
+          - google-chrome-stable
 
 before_script:
         - bundle install
@@ -11,6 +17,9 @@ before_script:
         - gem install colorize
         - gem install rspec
         - gem install cucumber
+        - export DISPLAY=:99.0
+        - sh -e /etc/init.d/xvfb start
+        - sleep 3
 script: bundle exec cucumber
 
 branches:
@@ -20,4 +29,6 @@ branches:
 notifications:
   email:
     - iamsmj@gmail.com
+
+
 
