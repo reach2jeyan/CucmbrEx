@@ -1,6 +1,7 @@
-source 'https://rubygems.org'
 
+sudo: required
 language: ruby
+<<<<<<< HEAD
 cache: bundler
 sudo: required
 
@@ -10,6 +11,20 @@ addons:
           - google-chrome
         packages:
           - google-chrome-stable
+=======
+dist: trusty
+
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
+
+script: bundle exec cucumber
+
+>>>>>>> 82326494c67fab0ee8b6971abd9655e81b6c6f7c
 
 before_script:
         - bundle install
@@ -17,10 +32,24 @@ before_script:
         - gem install colorize
         - gem install rspec
         - gem install cucumber
+<<<<<<< HEAD
         - export DISPLAY=:99.0
         - sh -e /etc/init.d/xvfb start
         - sleep 3
 script: bundle exec cucumber
+=======
+        - gem install rake
+        - gem install chromium
+        - wget http://chromedriver.storage.googleapis.com/2.21/chromedriver_linux64.zip
+        - unzip chromedriver_linux64.zip
+        - sudo chmod u+x chromedriver
+        - sudo mv chromedriver /usr/bin/
+        - export CHROME_BIN=chromium-browser
+        - export DISPLAY=:99.0
+        - sh -e /etc/init.d/xvfb start
+        - sleep 3
+        
+>>>>>>> 82326494c67fab0ee8b6971abd9655e81b6c6f7c
 
 branches:
   only:
