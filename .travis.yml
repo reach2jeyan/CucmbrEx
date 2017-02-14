@@ -1,4 +1,4 @@
-sudo: required
+sudo: false
 language: ruby
 dist: trusty
 
@@ -21,8 +21,12 @@ before_script:
         - gem install cucumber
         - gem install rake
         - gem install chromium
-        - sudo npm -g install chromedriver
-        - ln -sf /usr/lib/node_modules/chromedriver/lib/chromedriver/chromedriver ~/bin/chromedriver
+        - wget http://chromedriver.storage.googleapis.com/2.7/chromedriver_linux64.zip
+        - unzip chromedriver_linux64.zip
+        - sudo cp chromedriver /usr/local/bin/.
+        - export DISPLAY=:99.0
+        - sh -e /etc/init.d/xvfb start
+        - sleep 3
 
 
 branches:
