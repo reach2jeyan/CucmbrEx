@@ -122,11 +122,7 @@ Feature: Google page feature
         |Sydney|
         |Paris    |
 
-
-      Scenario: Verify if Google page loaded on launch
-         Then I wait for the Page to load
-         Then I assert for the <logo-subtext> in class
-
+        
 
 
 
