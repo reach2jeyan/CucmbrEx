@@ -1,4 +1,7 @@
 # CucmbrEx
+
+[![Build Status](https://travis-ci.org/divhegde/CucmbrEx.svg?branch=master)](https://travis-ci.org/divhegde/CucmbrEx)
+
 Project Contains test cases written in Cucumber framework with gherkin language. Step definitions are written in Ruby with WATIR module.
 Browser is automated with Selenium-webdriver.
 
