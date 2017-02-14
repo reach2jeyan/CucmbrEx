@@ -13,6 +13,8 @@ before_script:
   - gem install rake
   - gem install watir
   - gem install colorize
+  - bundle install
+  
 language: ruby
 
 notifications:
