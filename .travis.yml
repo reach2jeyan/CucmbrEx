@@ -1,38 +1,13 @@
-sudo: false
-language: ruby
+sudo: required
 dist: trusty
-
 addons:
   apt:
     sources:
       - google-chrome
     packages:
       - google-chrome-stable
-
-
-script: bundle exec cucumber
-
-
 before_script:
-        - bundle install
-        - gem install watir
-        - gem install colorize
-        - gem install rspec
-        - gem install cucumber
-        - gem install rake
-        - gem install chromium
-        - wget http://chromedriver.storage.googleapis.com/2.7/chromedriver_linux64.zip
-        - unzip chromedriver_linux64.zip
-        - sudo cp chromedriver /usr/local/bin/.
-        - export DISPLAY=:99.0
-        - sh -e /etc/init.d/xvfb start
-        - sleep 3
-
-
-branches:
-  only:
-    - master
-
-notifications:
-  email:
-    - iamsmj@gmail.com
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - sleep 3
+language: node_js
