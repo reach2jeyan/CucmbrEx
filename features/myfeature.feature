@@ -13,7 +13,7 @@ Feature: Google page feature
 
   Scenario Outline: Verify links with texts exists in footer and language bar
     Then I wait for the Page to load
-    Then I assert for the <text> in text
+    Then I assert for the text <text> in page
 
 
     Examples:
@@ -67,7 +67,7 @@ Feature: Google page feature
   Scenario Outline: User should be able to load google in respective language when language link clicked.
     When I click on <linktext> in the link
     Then I wait for the Page to load
-    Then I assert for the <text> in text
+    Then I assert for the text <text> in page
     Then I get <text> class name printed.
     Then I click on back button
 
