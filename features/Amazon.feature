@@ -1,7 +1,7 @@
 Feature: Automating Amazon India website.
 
   Background:
-    Given I enter "www.amazon.in" in broswer
+    Given I enter "www.amazon.com" in broswer
 
 
   Scenario: User in India, goes to Amazon.com and ensure redirect popup appears.
