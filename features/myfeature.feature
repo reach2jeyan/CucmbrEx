@@ -86,9 +86,9 @@ Feature: Google page feature
           
 
 
-    Examples:
-    |Search|       |linktext|
-    |Iron Man|     |Images  |
+    #Examples:
+    #|Search|       |linktext|
+    #|Iron Man|     |Images  |
 
   #Scenario Outline: User should be able to know the weather and time on searching city from google home page
     #Then I enter text "<Search>" in the search box
@@ -96,15 +96,15 @@ Feature: Google page feature
     #Then I enter "kc:/location/citytown:current weather" in data_attribute and print content
     #Then I wait for the Page to load
 
-      Examples:
+      #Examples:
 
-      |Search|
-      |Bangalore|
-      |Mangalore|
-      |Hyderabad|
-      |Trivandrum|
-      |Kochi     |
-      |Munnar    |
+      #|Search|
+      #|Bangalore|
+      #|Mangalore|
+      #|Hyderabad|
+      #|Trivandrum|
+      #|Kochi     |
+      #|Munnar    |
 
   #Scenario Outline: User should be able to know the time in several countries by typing the country name in Google search
     #Then I enter text "<Search>" in the search box
@@ -112,15 +112,15 @@ Feature: Google page feature
     #Then I enter "kc:/location/citytown:local time" in data_attribute and print content
     #Then I wait for the Page to load
 
-        Examples:
-        |Search|
-        |Bangalore|
-        |Seattle  |
-        |NewYork  |
-        |Lexington |
-        |Tokyo  |
-        |Sydney|
-        |Paris    |
+        #Examples:
+        #|Search|
+        #|Bangalore|
+        #|Seattle  |
+        #|NewYork  |
+        #|Lexington |
+        #|Tokyo  |
+        #|Sydney|
+        #|Paris    |
 
         
 
