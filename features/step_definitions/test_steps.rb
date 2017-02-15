@@ -3,8 +3,8 @@ require 'watir'
 require 'watir/browser'
 
 #To Prevent Chrome from closing after one line is executed.
-caps = Selenium::WebDriver::Remote::Capabilities.chrome("chromeOptions" => {'detach' => true})
-browser = Watir::Browser.new :chrome, desired_capabilities: caps
+caps = Selenium::WebDriver::Remote::Capabilities.chrome("chromeOptions" => {'detach' => false})
+browser = Watir::Browser.new :chrome
 
 Given(/^I enter "([^"]*)" in broswer$/) do |browser_url|
   browser.goto(browser_url)
@@ -200,3 +200,6 @@ Then(/^I close browser tab with title "([^"]*)"$/) do |div|
   #browser.button(:id => "close").click
 end
 
+Then(/^I assert for the (.*) in text$/) do |text|
+  pending
+end
