@@ -30,9 +30,6 @@ end
 
 Then(/^I assert for the text (.*) in page$/) do |text|
    browser.link(:verify, text)
-
-
-
 end
 
 
@@ -45,14 +42,9 @@ Then(/^I print the URL of the new page$/) do
   puts browser.url
 end
 
-When(/^I click on "([^"]*)" in the link$/) do |arg|
-  browser.link(:text, "Advertising").click
-end
-
 When(/^I click on (.*) in the link$/) do |linktext|
   browser.link(:text, linktext).click
 end
-
 
 
 Then(/^I get (.*) class name printed\.$/) do |text|
@@ -139,7 +131,7 @@ Then (/^I print the prices$/) do
 end 
 
 Then(/^I assert for "([^"]*)" in the page$/) do |arg|
-  browser.link(:text, 'imdb') == true
+  browser.link(:text, arg) == true
 end
 
 
@@ -199,6 +191,14 @@ When(/^I assert on link with div id "([^"]*)"$/) do |div|
   browser.div(:id => div).click
   end
 
+Then(/^I click on Enter key on keyboard$/) do
+  browser.send_keys :enter
+end
+
+Then(/^I close browser tab with title "([^"]*)"$/) do |div|
+  browser.window(:title => div).close
+  #browser.button(:id => "close").click
+end
 
 Then(/^I assert for the (.*) in text$/) do |text|
   pending
