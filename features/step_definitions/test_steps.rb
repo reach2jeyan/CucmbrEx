@@ -203,3 +203,8 @@ end
 Then(/^I assert for the (.*) in text$/) do |text|
   pending
 end
+
+Then(/^I select "([^"]*)" from the dropdown list with classname "([^"]*)"$/) do |name,classname|
+  browser.div(:class,classname).click
+  browser.select_list(:class => classname).div(:text => name).select
+end
