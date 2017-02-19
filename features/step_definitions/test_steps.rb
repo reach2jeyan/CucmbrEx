@@ -204,7 +204,29 @@ Then(/^I assert for the (.*) in text$/) do |text|
   pending
 end
 
-Then(/^I select "([^"]*)" from the dropdown list with classname "([^"]*)"$/) do |name,classname|
-  browser.div(:class,classname).click
-  browser.select_list(:class => classname).div(:text => name).select
+
+Then(/^I click on the drop down box with div class "([^"]*)"$/) do |dropdown|
+  browser.div(:class,dropdown).click
+end
+
+
+Then(/^I select "([^"]*)" with index "([^"]*)" with div class "([^"]*)"$/) do |name, index, classname|
+
+end
+
+
+Then(/^I print the contents of dropdown box with the class name "([^"]*)"$/) do |classname|
+  browser.divs(:class => classname).each do |div|
+    puts div.text
+  end
+end
+
+
+Then(/^I click on "([^"]*)" with div class "([^"]*)"$/) do |option, classname|
+  browser.div(:class => classname).set(:text => option)
+end
+
+
+Then(/^I select in the dropdown box content with class "([^"]*)" select option "([^"]*)" with div class "([^"]*)"$/) do |parentclass, name, childclass|
+  browser.select_list(:class => parentclass).div(:class => childclass).set(:text => name)
 end

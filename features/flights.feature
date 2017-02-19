@@ -29,3 +29,12 @@ Feature: To automate the flight application
     Then I select "First Class" from the dropdown list with classname "OMOBOQD-c-b OMOBOQD-n-g OMOBOQD-n-l"
     Then I wait for the Page to load
     Then I print the prices
+
+  Scenario: automate flight application - Economy class dropdown- other options
+    Then I click on the drop down box with div class "OMOBOQD-c-b OMOBOQD-n-g OMOBOQD-n-l"
+    Then I print the contents of dropdown box with the class name "popupContent"
+    Then I select in the dropdown box content with class "popupContent" select option "Premium Economy" with div class "OMOBOQD-c-v"
+    Then I wait for the Page to load
+    Then I print the prices
+
+
