@@ -1,0 +1,1 @@
+cucumber install --format html --out reports/cucumber.html
