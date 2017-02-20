@@ -5,27 +5,45 @@ Feature: To automate the flight application
     When I enter text "flights" in the search box
     Then I tap on search button
     Then I tap on the "Flights" text
-    Then I wait for the Page to load
+    And I wait for the Page to load
     Then I assert for browser title Google Flights
-    Then I enter text Mumbai in Where from field
-    Then I enter text London in Where to field
+    And I enter text Mumbai in Where from field
+    And I enter text London in Where to field
     Then I click on from date
-    Then I enter date "March 10" in from date field
-    Then I enter date "March 14" in to date field
+    When I enter date "March 10" in from date field
+    And I enter date "March 14" in to date field
     Then I wait for the Page to load
-
-  Scenario: automate flight application - Economy class
-    Then I select "Premium Economy" from the dropdown list with classname "OMOBOQD-c-b OMOBOQD-n-g OMOBOQD-n-l"
-    Then I wait for the Page to load
-    Then I print the prices
 
   Scenario: automate flight application - Economy class dropdown- other options
-    Then I select "Premium Economy" from the dropdown list with classname "OMOBOQD-c-b OMOBOQD-n-g OMOBOQD-n-l"
-    Then I wait for the Page to load
+    Then I click on the drop down box with div class "OMOBOQD-c-b OMOBOQD-n-g OMOBOQD-n-l"
+    When I select "Economy Class" in the drop down box with xpath "/html/body/div[3]/div/div/div[1]/div"
+    And I wait for the Page to load
     Then I print the prices
-    Then I select "Business Class" from the dropdown list with classname "OMOBOQD-c-b OMOBOQD-n-g OMOBOQD-n-l"
-    Then I wait for the Page to load
+
+  Scenario: automate flight application - Premium Economy dropdown- other options
+    Then I click on the drop down box with div class "OMOBOQD-c-b OMOBOQD-n-g OMOBOQD-n-l"
+    When I select "Premium Economy" in the drop down box with xpath "/html/body/div[3]/div/div/div[2]/div"
+    And I wait for the Page to load
     Then I print the prices
-    Then I select "First Class" from the dropdown list with classname "OMOBOQD-c-b OMOBOQD-n-g OMOBOQD-n-l"
-    Then I wait for the Page to load
+
+  Scenario: Automate flight application - Business class drop down - other options
+    Then I click on the drop down box with div class "OMOBOQD-c-b OMOBOQD-n-g OMOBOQD-n-l"
+    When I select "Business class" in the drop down box with xpath "/html/body/div[3]/div/div/div[3]"
+    And I wait for the Page to load
     Then I print the prices
+
+  Scenario: automate flight application - First class dropdown- other options
+    Then I click on the drop down box with div class "OMOBOQD-c-b OMOBOQD-n-g OMOBOQD-n-l"
+    When I select "Business class" in the drop down box with xpath "/html/body/div[3]/div/div/div[4]/div"
+    And I wait for the Page to load
+    Then I print the prices
+
+  Scenario: automate flight application - Change the number of adults to 2 and infants to 1 and bring adults number to 1 again
+    When I tap on the "1 adult" text
+    Then I select "Adults" in the drop down box with xpath "/html/body/div[3]/div/div/div[1]/div/div[3]/div"
+    Then I select "Infants" in the drop down box with xpath "/html/body/div[3]/div/div/div[3]/div/div[3]/div"
+    Then I select "Adults" in the drop down box with xpath "/html/body/div[3]/div/div/div[1]/div/div[1]/div"
+    Then I verify "1 adult, 1 infant in seat" in page
+
+
+

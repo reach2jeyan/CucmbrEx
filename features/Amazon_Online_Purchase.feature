@@ -6,10 +6,10 @@ Feature: Amazon Online purchase-Happy path
     When I enter "mobiles" using div id "twotabsearchtextbox"
     Then I click on Enter key on keyboard
     Then I wait for the Page to load
-    Then I click on link with text "Nubia N1 (Black-Gold, 64GB)"
+    Then I click on link with text "Moto G Play, 4th Gen (Black)"
     Then I wait for the Page to load
     Then I close browser tab with title "Amazon.in: mobiles - Smartphones & Basic Mobiles / Mobiles & Accessories: Electronics"
-    Then I assert for browser title Nubia N1 (Black-Gold, 64GB): Amazon.in: Electronics
+    Then I assert for browser title <Moto G4 Play Price>
     Then I wait for the Page to load
     Then I click on button with text "Add to Cart"
     Then I click on link with text "Proceed to checkout (1 item)"

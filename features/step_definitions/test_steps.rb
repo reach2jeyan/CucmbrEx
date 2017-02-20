@@ -200,11 +200,12 @@ Then(/^I close browser tab with title "([^"]*)"$/) do |div|
   #browser.button(:id => "close").click
 end
 
-Then(/^I assert for the (.*) in text$/) do |text|
-  pending
+
+Then(/^I click on the drop down box with div class "([^"]*)"$/) do |dropdown|
+  browser.div(:class,dropdown).click
 end
 
-Then(/^I select "([^"]*)" from the dropdown list with classname "([^"]*)"$/) do |name,classname|
-  browser.div(:class,classname).click
-  browser.select_list(:class => classname).div(:text => name).select
+
+Then(/^I select "([^"]*)" in the drop down box with xpath "([^"]*)"$/) do |name, path|
+  browser.element(:xpath => path).click
 end
