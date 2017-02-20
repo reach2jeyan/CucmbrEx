@@ -206,34 +206,6 @@ Then(/^I click on the drop down box with div class "([^"]*)"$/) do |dropdown|
 end
 
 
-Then(/^I print the contents of dropdown box with the class name "([^"]*)"$/) do |classname|
-  browser.divs(:class => classname).each do |div|
-    puts div.text
-  end
-end
-
-
-Then(/^I click on "([^"]*)" with div class "([^"]*)"$/) do |option, classname|
-  browser.div(:class => classname).set(:text => option)
-end
-
-
-Then(/^I select in the dropdown box content with class "([^"]*)" select option "([^"]*)" with div class "([^"]*)"$/) do |parentclass, name, childclass|
-  browser.div(:class => parentclass).div(:class => childclass).option(:text => name).select
-end
-
-Then(/^I print the class names of the contents in the drop down box with div class "([^"]*)"$/) do |classname|
-  browser.divs(:class => classname).each do |div|
-    puts div.class
-  end
-end
-
-
-Then(/^I click on "([^"]*)" in the dropdown contents with div class "([^"]*)"$/) do |text, classname|
-  browser.div(:class, classname).link(:text, text)
-end
-
-
 Then(/^I select "([^"]*)" in the drop down box with xpath "([^"]*)"$/) do |name, path|
   browser.element(:xpath => path).click
 end
