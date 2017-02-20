@@ -38,4 +38,12 @@ Feature: To automate the flight application
     And I wait for the Page to load
     Then I print the prices
 
+  Scenario: automate flight application - Change the number of adults to 2 and infants to 1 and bring adults number to 1 again
+    When I tap on the "1 adult" text
+    Then I select "Adults" in the drop down box with xpath "/html/body/div[3]/div/div/div[1]/div/div[3]/div"
+    Then I select "Infants" in the drop down box with xpath "/html/body/div[3]/div/div/div[3]/div/div[3]/div"
+    Then I select "Adults" in the drop down box with xpath "/html/body/div[3]/div/div/div[1]/div/div[1]/div"
+    Then I verify "1 adult, 1 infant in seat" in page
+
+
 
