@@ -2,6 +2,8 @@ require 'watir'
 
 require 'watir/browser'
 
+require 'watir-scroll'
+
 #To Prevent Chrome from closing after one line is executed.
 caps = Selenium::WebDriver::Remote::Capabilities.chrome("chromeOptions" => {'detach' => false})
 browser = Watir::Browser.new :chrome
@@ -208,4 +210,21 @@ end
 
 Then(/^I select "([^"]*)" in the drop down box with xpath "([^"]*)"$/) do |name, path|
   browser.element(:xpath => path).click
+end
+
+
+And(/^I select "([^"]*)" using xpath "([^"]*)"$/) do |name, path|
+  browser.element(:xpath => path).click
+end
+
+Then(/^I scroll to center of the page$/) do
+  browser.scroll.to :center
+end
+
+Then(/^I click on "([^"]*)" using div id$/) do |arg|
+  browser.div(:id => arg)
+end
+
+Then(/^I print all the text contents in the page using html tag$/) do
+  puts browser.html
 end
