@@ -1,4 +1,4 @@
-Feature: Amazon Online purchase-Happy path
+Feature: Amazon Online purchase using pickup store-Happy path
 
   Scenario: User should be able to buy the amazon product(Happy path)
     Given I enter "www.amazon.in" in broswer
@@ -13,7 +13,6 @@ Feature: Amazon Online purchase-Happy path
     Then I wait for the Page to load
     Then I click on button with text "Add to Cart"
     Then I click on link with text "Proceed to checkout (1 item)"
-
     Then I assert for browser title Amazon Sign In
     Then I assert for the text field with div id "ap_email"
     When I enter "reach2jeyan@hotmail.com" using div id "ap_email"
@@ -21,3 +20,13 @@ Feature: Amazon Online purchase-Happy path
     Then I click on Enter key on keyboard
     Then I wait for the Page to load
     Then I assert for browser title Enter the delivery address
+    Then I assert for the text "Deliver to this address" in page
+    Then I maximize the browser
+    Then I assert for the text "Search for a Pickup location near you" in page
+    Then I click on "searchCriterion.storeZip" using div id
+    Then I enter "500080" using div id "storeZip"
+    When I click on Enter key on keyboard
+    Then I wait for the Page to load
+    Then I assert for the text "Pickup Locations Search Results" in page
+
+    
