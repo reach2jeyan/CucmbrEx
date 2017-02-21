@@ -64,6 +64,7 @@ Feature: User Account creation with Amazon
     And I enter "jeyy1988" using div id "ap_password"
     When I click on button with text "Continue"
     Then I assert for the text <Enter your name> in page
+    Then I wait for the Page to load
 
 
 
